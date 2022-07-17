@@ -1,1 +1,9 @@
-
+yfinance==0.1.65
+streamlit==1.11.0
+pandas==1.2.1
+plotly==4.14.3
+click==8.0.4
+protobuf==3.20
+numpy==1.21.6
+xgboost
+sklearn
