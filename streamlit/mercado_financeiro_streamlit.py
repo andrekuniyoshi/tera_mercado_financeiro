@@ -281,7 +281,7 @@ df = constroi_features_defasadas(df,['Adj Close'],20)
 df = constroi_features_futuras(df,'target',hora_previsao)
 df_model = df.drop('target', axis=1)
 
-st.dataframe(df)
+#st.dataframe(df)
 
 ###-----------------------------------MODELO--------------------------------------------
 df = df[-600:]
