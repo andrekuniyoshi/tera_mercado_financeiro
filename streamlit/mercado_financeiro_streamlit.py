@@ -35,6 +35,8 @@ with st.expander("ℹ️ - About this app", expanded=True):
 	-   Esse app é fruto do projeto final do curso de Data Science & Machile Learning da TERA
 	-   Nosso app utiliza técnicas de Machine Learning para tentar prever se o valor das ações vai subir ou descer 
 	-   Esse trabalho ainda está em desenvolvimento, então ressalta-se que não deve ser utilizado para subsidiar suas decisões de investimentos! Pelo menos, não por enquanto😁
+	-   O código do app pode ser conferido em: 'https://github.com/andrekuniyoshi/tera_mercado_financeiro/tree/main/streamlit'
+	-   Autores: Andre Kuniyoshi, Gustavo Henrique Farias, Guilherme Gomes e Lucas Oliveira
 	    """
 	)
 	st.markdown("")
