@@ -30,7 +30,7 @@ st.set_page_config(
 st.title("🤑 TERA - Projeto Mercado Financeiro")
 st.header("")
 
-with st.expander("ℹ️ - About this app", expanded=True):
+with st.expander("ℹ️ - About this app", expanded=False):
 	st.write(
         """     
 	-   Esse app é fruto do projeto final do curso de Data Science & Machile Learning da TERA
