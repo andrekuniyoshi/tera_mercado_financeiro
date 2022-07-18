@@ -296,7 +296,7 @@ if st.button('Aperte para Previsão'):
 #st.dataframe(df)
 
 ###-----------------------------------MODELO--------------------------------------------
-        picklefile = open("/pickle/stock_pred3.pkl", "rb")
+        picklefile = open("/pickle/.txt", "rb")
         model = pickle.load(picklefile)
 	
         df = df_model[-600:]
