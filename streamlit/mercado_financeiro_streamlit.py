@@ -232,7 +232,10 @@ with col2:
 				  min_value=1,
 				  max_value=8,
 				  step=1)
-	
+with col3:
+        st.write("Previsão")
+with col4:
+        st.write("Probabilidade")
 ##-----------------------------------slider de horas-------------------------------------------- '''
 if st.button('Previsão'):
         st.write('Why hello there')
@@ -287,11 +290,8 @@ if st.button('Previsão'):
         df_model = df.drop('target', axis=1)
 
 #st.dataframe(df)
-        with col3:
-            st.write("Previsão")
-        with col4:
-            st.write("Probabilidade")
-	###-----------------------------------MODELO--------------------------------------------
+
+###-----------------------------------MODELO--------------------------------------------
         df = df[-600:]
         y_pred, y_proba = modelo(df, 'target_fut')
 
