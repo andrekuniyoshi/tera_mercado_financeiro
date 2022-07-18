@@ -26,7 +26,7 @@ st.set_page_config(
     page_icon="📈",
 )
 
-st.title("💸 TERA - Projeto Mercado Financeiro")
+st.title("🤑 TERA - Projeto Mercado Financeiro")
 st.header("")
 
 with st.expander("ℹ️ - About this app", expanded=True):
