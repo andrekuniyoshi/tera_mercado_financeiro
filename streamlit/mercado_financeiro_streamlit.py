@@ -224,6 +224,15 @@ df = lta_ltb(df)
 df = media_movel(df, 'Adj Close', 20)
 df = feat_temporais(df)
 
+##-----------------------------------slider de horas-------------------------------------------- '''
+
+with col2:
+	hora_previsao = st.slider("Tempo Futuro da Previsão (horas)",
+				  value=1,
+				  min_value=1,
+				  max_value=8,
+				  step=1)
+	
 ##-----------------------------------VISUALIZAÇÃO DOS DADOS-------------------------------------------- '''
 df_viz = df[-600:]
 st.markdown("")
@@ -264,15 +273,6 @@ st.plotly_chart(figBoll, use_container_width=False)
 fig = px.line(df_viz, x=df_viz.index, y="rsi")
 fig.update_layout(title_text="Variação de RSI")
 st.plotly_chart(fig, use_container_width=False)
-
-##-----------------------------------slider de horas-------------------------------------------- '''
-
-with col2:
-	hora_previsao = st.slider("Tempo Futuro da Previsão (horas)",
-				  value=1,
-				  min_value=1,
-				  max_value=8,
-				  step=1)
 
 ##-----------------------------------CRIANDO DATASET-------------------------------------------- '''
 
