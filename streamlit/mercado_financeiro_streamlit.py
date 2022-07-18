@@ -43,6 +43,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
 	st.markdown("")
 
 # -------------------------------------------------------------------------------------------------------------------------------#
+model = pickle.load(open('stock_pred.sav','rb'))
 # ---------------------------------------------Escolhendo o tempo futuro da previsão-----------------------------------------------------#
 st.subheader('Previsão de Subida ou Descida')
 
@@ -293,7 +294,14 @@ if st.button('Aperte para Previsão'):
 
 ###-----------------------------------MODELO--------------------------------------------
         df = df_model[-600:]
-        y_pred, y_proba = modelo(df, 'target_fut')
+        X_test = df.drop('target_fut', axis=1)[-1:]
+        #X_train = df[:-1].dropna().drop('target_fut', axis=1)
+        #y_train = df[:-1].dropna()['target_fut']
+	
+        y_pred = model.predict(X_test)
+        y_proba = model.predict_proba(X_test)
+        y_proba = y_proba[:, 1]
+        #y_pred, y_proba = modelo(df, 'target_fut')
 
 ###-------------------------------------------------------------------------------------
         with col3:
