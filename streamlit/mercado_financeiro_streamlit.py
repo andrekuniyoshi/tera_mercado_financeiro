@@ -45,8 +45,8 @@ with st.expander("ℹ️ - About this app", expanded=True):
 # -------------------------------------------------------------------------------------------------------------------------------#
 #model = pickle.load(open('stock_pred.pkl','rb'))
          # loading the trained model
-pickle_in = open("stock_pred3.pkl", "rb") 
-model = pickle.load(pickle_in)
+#pickle_in = open("stock_pred3.pkl", "rb") 
+#model = pickle.load(pickle_in)
 # ---------------------------------------------Escolhendo o tempo futuro da previsão-----------------------------------------------------#
 st.subheader('Previsão de Subida ou Descida')
 
@@ -296,7 +296,10 @@ if st.button('Aperte para Previsão'):
 #st.dataframe(df)
 
 ###-----------------------------------MODELO--------------------------------------------
-        df = df_model[-600:]
+        picklefile = open("stock_pred3.pkl", "rb")
+        model = pickle.load(picklefile)
+	
+	df = df_model[-600:]
         X_test = df.drop('target_fut', axis=1)[-1:]
         #X_train = df[:-1].dropna().drop('target_fut', axis=1)
         #y_train = df[:-1].dropna()['target_fut']
