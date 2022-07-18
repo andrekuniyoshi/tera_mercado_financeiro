@@ -43,7 +43,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
 	st.markdown("")
 
 # -------------------------------------------------------------------------------------------------------------------------------#
-model = pickle.load(open('/streamlit/stock_pred.sav','rb'))
+model = pickle.load(open('https://github.com/andrekuniyoshi/tera_mercado_financeiro/tree/main/streamlit/stock_pred.pkl','rb'))
 # ---------------------------------------------Escolhendo o tempo futuro da previsão-----------------------------------------------------#
 st.subheader('Previsão de Subida ou Descida')
 
