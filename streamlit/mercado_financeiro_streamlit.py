@@ -299,7 +299,7 @@ if st.button('Aperte para Previsão'):
         picklefile = open("stock_pred3.pkl", "rb")
         model = pickle.load(picklefile)
 	
-	df = df_model[-600:]
+        df = df_model[-600:]
         X_test = df.drop('target_fut', axis=1)[-1:]
         #X_train = df[:-1].dropna().drop('target_fut', axis=1)
         #y_train = df[:-1].dropna()['target_fut']
