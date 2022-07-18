@@ -287,14 +287,17 @@ if st.button('Previsão'):
         df_model = df.drop('target', axis=1)
 
 #st.dataframe(df)
-
+        with col3:
+            st.write("Previsão")
+        with col4:
+            st.write("Probabilidade")
 	###-----------------------------------MODELO--------------------------------------------
         df = df[-600:]
         y_pred, y_proba = modelo(df, 'target_fut')
 
 ###-------------------------------------------------------------------------------------
         with col3:
-            st.write("Previsão")
+            #st.write("Previsão")
             if y_proba >= 0.7:
                 st.info('Subir ⬆️')
             elif y_proba <= 0.3:
@@ -303,7 +306,7 @@ if st.button('Previsão'):
                 st.warning('Na mesma 😐')
 
         with col4:
-            st.write("Probabilidade")
+            #st.write("Probabilidade")
 			#st.subheader(y_proba[0])
             if y_proba >= 0.7:
                 st.info(round(y_proba[0],4))
