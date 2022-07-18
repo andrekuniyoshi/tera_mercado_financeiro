@@ -294,8 +294,12 @@ if st.button('Aperte para Previsão'):
         df_model = df.drop('target', axis=1)
 
 ###-----------------------------------MODELO--------------------------------------------
-        picklefile = open("streamlit/stock_pred3.pkl", "rb")
-        model = pickle.load(picklefile)
+        if ticker == 'AAPL':
+            picklefile = open("streamlit/stock_pred_AAPL.pkl", "rb")
+            model = pickle.load(picklefile)
+        if ticker == 'AMZN':
+            picklefile = open("streamlit/stock_pred_AMZN.pkl", "rb")
+            model = pickle.load(picklefile)
 	
         df = df_model[-600:]
         st.dataframe(df)
