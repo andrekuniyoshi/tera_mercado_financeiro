@@ -45,7 +45,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
 # -------------------------------------------------------------------------------------------------------------------------------#
 #model = pickle.load(open('stock_pred.pkl','rb'))
          # loading the trained model
-pickle_in = open('stock_pred3.pkl', 'rb') 
+pickle_in = open("stock_pred3.pkl", "rb") 
 model = pickle.load(pickle_in)
 # ---------------------------------------------Escolhendo o tempo futuro da previsão-----------------------------------------------------#
 st.subheader('Previsão de Subida ou Descida')
