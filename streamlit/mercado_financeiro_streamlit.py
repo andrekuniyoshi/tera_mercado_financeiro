@@ -292,14 +292,13 @@ y_pred, y_proba = modelo(df, 'target_fut')
 ###-------------------------------------------------------------------------------------
 with col3:
     with st.spinner('Wait for it...'):
-
-	    st.write("Previsão")
-	    if y_proba >= 0.7:
-		st.info('Subir ⬆️')
-	    elif y_proba <= 0.3:
-		st.error('Descer ⬇️')
-	    else:
-		st.warning('Na mesma 😐')
+        st.write("Previsão")
+	if y_proba >= 0.7:
+            st.info('Subir ⬆️')
+	elif y_proba <= 0.3:
+            st.error('Descer ⬇️')
+	else:
+	    st.warning('Na mesma 😐')
     st.success('Done!')
 
 with col4:
