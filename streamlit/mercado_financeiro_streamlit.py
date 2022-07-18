@@ -298,7 +298,7 @@ with col3:
         elif y_proba <= 0.3:
             st.error('Descer ⬇️')
         else:
-	    st.warning('Na mesma 😐')
+            st.warning('Na mesma 😐')
     st.success('Done!')
 
 with col4:
