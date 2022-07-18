@@ -45,7 +45,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
 # ---------------------------------------------Escolhendo o tempo futuro da previsão-----------------------------------------------------#
 st.subheader('Previsão de Subida ou Descida')
 
-col1, col2, col3, col4, col5 = st.columns([2,2,1,1,1])
+col1, col2, col3, col4 = st.columns([2,2,1,1])
 with col1:
 	symbols = ['AAPL', 'AMZN']
 
@@ -234,8 +234,7 @@ with col2:
 				  step=1)
 	
 ##-----------------------------------slider de horas-------------------------------------------- '''
-with col3:
-    if st.button('Previsão'):
+if st.button('Previsão'):
         st.write('Why hello there')
 ##-----------------------------------VISUALIZAÇÃO DOS DADOS-------------------------------------------- '''
         df_viz = df[-600:]
@@ -280,40 +279,35 @@ with col3:
 
 ##-----------------------------------CRIANDO DATASET-------------------------------------------- '''
 
-df = target(df)
-df.dropna(inplace=True)
-df = df[['target', 'Adj Close', 'Volume', 'rsi', 'bbp', 'suport_resistencia', 'corr_class', 'media_movel', 'dia_semana', 'horario', 'mes']]
-df = constroi_features_defasadas(df,['Adj Close'],20)
-df = constroi_features_futuras(df,'target',hora_previsao)
-df_model = df.drop('target', axis=1)
+        df = target(df)
+	df.dropna(inplace=True)
+	df = df[['target', 'Adj Close', 'Volume', 'rsi', 'bbp', 'suport_resistencia', 'corr_class', 'media_movel', 'dia_semana', 'horario', 'mes']]
+	df = constroi_features_defasadas(df,['Adj Close'],20)
+	df = constroi_features_futuras(df,'target',hora_previsao)
+	df_model = df.drop('target', axis=1)
 
 #st.dataframe(df)
 
-###-----------------------------------MODELO--------------------------------------------
-df = df[-600:]
-y_pred, y_proba = modelo(df, 'target_fut')
+	###-----------------------------------MODELO--------------------------------------------
+	df = df[-600:]
+	y_pred, y_proba = modelo(df, 'target_fut')
 
 ###-------------------------------------------------------------------------------------
-with col4:
-    with st.spinner('Wait for it...'):
-        st.write("Previsão")
-        if y_proba >= 0.7:
-            st.info('Subir ⬆️')
-        elif y_proba <= 0.3:
-            st.error('Descer ⬇️')
-        else:
-            st.warning('Na mesma 😐')
-    st.success('Done!')
+	with col3:
+            st.write("Previsão")
+            if y_proba >= 0.7:
+                st.info('Subir ⬆️')
+            elif y_proba <= 0.3:
+                st.error('Descer ⬇️')
+            else:
+                st.warning('Na mesma 😐')
 
-with col5:
-    with st.spinner('Wait for it...'):
-	
-	    st.write("Probabilidade")
-		#st.subheader(y_proba[0])
-	    if y_proba >= 0.7:
+	with col4:
+            st.write("Probabilidade")
+			#st.subheader(y_proba[0])
+            if y_proba >= 0.7:
                 st.info(round(y_proba[0],4))
-	    elif y_proba <= 0.3:
+            elif y_proba <= 0.3:
                 st.error(round(y_proba[0],4))
-	    else:
+            else:
                 st.warning(round(y_proba[0],4))
-    st.success('Done!')
