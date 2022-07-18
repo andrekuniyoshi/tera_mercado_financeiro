@@ -43,7 +43,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
 	st.markdown("")
 
 # -------------------------------------------------------------------------------------------------------------------------------#
-model = pickle.load(open('stock_pred.pkl','rb'))
+model = pickle.load(open('stock_pred.sav','rb'))
 # ---------------------------------------------Escolhendo o tempo futuro da previsão-----------------------------------------------------#
 st.subheader('Previsão de Subida ou Descida')
 
