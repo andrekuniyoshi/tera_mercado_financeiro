@@ -237,8 +237,7 @@ with col3:
 with col4:
         st.write("Probabilidade")
 ##-----------------------------------slider de horas-------------------------------------------- '''
-if st.button('Previsão'):
-        st.write('Why hello there')
+if st.button('Aperte para Previsão'):
 ##-----------------------------------VISUALIZAÇÃO DOS DADOS-------------------------------------------- '''
         df_viz = df[-600:]
         st.markdown("")
