@@ -293,13 +293,12 @@ if st.button('Aperte para Previsão'):
         df = constroi_features_futuras(df,'target',hora_previsao)
         df_model = df.drop('target', axis=1)
 
-#st.dataframe(df)
-
 ###-----------------------------------MODELO--------------------------------------------
         picklefile = open("streamlit/stock_pred3.pkl", "rb")
         model = pickle.load(picklefile)
 	
         df = df_model[-600:]
+	st.dataframe(df)
         X_test = df.drop('target_fut', axis=1)[-1:]
         #X_train = df[:-1].dropna().drop('target_fut', axis=1)
         #y_train = df[:-1].dropna()['target_fut']
