@@ -280,17 +280,17 @@ if st.button('Previsão'):
 ##-----------------------------------CRIANDO DATASET-------------------------------------------- '''
 
         df = target(df)
-	df.dropna(inplace=True)
-	df = df[['target', 'Adj Close', 'Volume', 'rsi', 'bbp', 'suport_resistencia', 'corr_class', 'media_movel', 'dia_semana', 'horario', 'mes']]
-	df = constroi_features_defasadas(df,['Adj Close'],20)
-	df = constroi_features_futuras(df,'target',hora_previsao)
-	df_model = df.drop('target', axis=1)
+        df.dropna(inplace=True)
+        df = df[['target', 'Adj Close', 'Volume', 'rsi', 'bbp', 'suport_resistencia', 'corr_class', 'media_movel', 'dia_semana', 'horario', 'mes']]
+        df = constroi_features_defasadas(df,['Adj Close'],20)
+        df = constroi_features_futuras(df,'target',hora_previsao)
+        df_model = df.drop('target', axis=1)
 
 #st.dataframe(df)
 
 	###-----------------------------------MODELO--------------------------------------------
-	df = df[-600:]
-	y_pred, y_proba = modelo(df, 'target_fut')
+        df = df[-600:]
+        y_pred, y_proba = modelo(df, 'target_fut')
 
 ###-------------------------------------------------------------------------------------
 	with col3:
