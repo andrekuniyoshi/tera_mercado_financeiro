@@ -18,6 +18,7 @@ import plotly.express as px
 from xgboost import XGBClassifier
 import sklearn
 import altair
+import pickle
 
 # -------------------------------------- Cabeçalho -------------------------------------------------------#
 
