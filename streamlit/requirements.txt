@@ -7,4 +7,3 @@ protobuf==3.20
 numpy==1.21.6
 xgboost
 sklearn
-pickle
