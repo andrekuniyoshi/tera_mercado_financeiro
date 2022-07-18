@@ -238,45 +238,45 @@ with col3:
     if st.button('Previsão'):
         st.write('Why hello there')
 ##-----------------------------------VISUALIZAÇÃO DOS DADOS-------------------------------------------- '''
-    df_viz = df[-600:]
-    st.markdown("")
+        df_viz = df[-600:]
+        st.markdown("")
 
-    # Bollinger Band
-    st.subheader('Visualização das features exógenas')
-    figBoll = go.Figure()
-    figBoll.add_trace(
-	    go.Scatter(
-		x = df_viz.index,
-		y = df_viz['upper'],
-		name = "Upper Band")
-	    )
-    figBoll.add_trace(
-	    go.Scatter(
-		x = df_viz.index,
-		y = df_viz['mid'],
-		name = "Média Móvel")
-	    )
-    figBoll.add_trace(
-	    go.Scatter(
-		x = df_viz.index,
-		y = df_viz['low'],
-		name = "Lower Band")
-	    )
-    figBoll.update_layout(legend=dict(
-	    orientation="h",
-	    yanchor="bottom",
-	    y=1,
-	    xanchor="left",
-	    x=0
-	    ))
-    figBoll.update_layout(title_text="Bollinger Band")
-    figBoll.update_yaxes(tickprefix="$")
-    st.plotly_chart(figBoll, use_container_width=False)
+        # Bollinger Band
+        st.subheader('Visualização das features exógenas')
+        figBoll = go.Figure()
+        figBoll.add_trace(
+	        go.Scatter(
+	            x = df_viz.index,
+		    y = df_viz['upper'],
+		    name = "Upper Band")
+	        )
+        figBoll.add_trace(
+	        go.Scatter(
+		    x = df_viz.index,
+		    y = df_viz['mid'],
+		    name = "Média Móvel")
+	        )
+        figBoll.add_trace(
+	        go.Scatter(
+	            x = df_viz.index,
+		    y = df_viz['low'],
+		    name = "Lower Band")
+	        )
+        figBoll.update_layout(legend=dict(
+   	        orientation="h",
+	        yanchor="bottom",
+	        y=1,
+	        xanchor="left",
+	        x=0
+	        ))
+        figBoll.update_layout(title_text="Bollinger Band")
+        figBoll.update_yaxes(tickprefix="$")
+        st.plotly_chart(figBoll, use_container_width=False)
 
 # Gráfico RSI
-    fig = px.line(df_viz, x=df_viz.index, y="rsi")
-    fig.update_layout(title_text="Variação de RSI")
-    st.plotly_chart(fig, use_container_width=False)
+        fig = px.line(df_viz, x=df_viz.index, y="rsi")
+        fig.update_layout(title_text="Variação de RSI")
+        st.plotly_chart(fig, use_container_width=False)
 
 ##-----------------------------------CRIANDO DATASET-------------------------------------------- '''
 
